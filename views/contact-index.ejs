@@ -1,0 +1,59 @@
+<%- include ('./partials/header.ejs') %>
+
+<div class="container" style="margin-top: 50px;" >
+    <div class="table-wrapper">
+        <div class="card"> 
+            <div class="card-header" style="background-color:  rgb(222, 240, 241);">
+                <ul class="nav nav-pills w-100">
+                    <li class="nav-pill active">
+                        <a class="nav-link"><h3>Contact</h3></a>
+                    </li>
+                    <li class="nav-pill ml-auto">
+                        <a class="nav-link active" href="/addcontact">Add Contact</a>
+                    </li>
+                </ul>
+            </div>
+    
+    
+    
+        <% if (contacts.length > 0) {%>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th width="200px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% contacts.forEach((contact, index) => { %>
+                <tr>
+                    <th scope="row"><%= contact.id %></th>
+                    <td><%= contact.firstname %></td>
+                    <td><%= contact.lastname %></td>
+                    <td><%= contact.email %></td>
+    
+    
+    
+                    <td>
+                        <a href="/editcontact/<%= contact.id %>" target="_blank" rel="noopener"
+                            class="btn btn-success edit">Edit</a>
+                        <a href="/deletecontact/<%= contact.id %>" class="btn btn-danger delete">Delete</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p class="text-center">No contact found! To add contact click Add Contact</p>
+        <% } %>
+    </div>
+    </div>
+</div><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+<%- include ('./partials/footer.ejs') %>

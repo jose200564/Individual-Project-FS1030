@@ -1,0 +1,56 @@
+<%- include ('./partials/header.ejs') %>
+
+<div class="container" style="margin-top: 50px;" >
+    
+    
+        <div class="card"> 
+            <div class="card-header" style="background-color:  rgb(222, 240, 241);">
+                <ul class="nav nav-pills w-100">
+                    <li class="nav-pill active">
+                        <a class="nav-link"><h3>Edit Contact</h3></a>
+                    </li>
+                    <li class="nav-pill ml-auto">
+                        <a class="nav-link active" href="/addcontact">Update Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+
+<div class="container">
+    <% if (message) { %>
+    <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (contacts) { %>
+    <form class="add-contact-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" name="firstName" id="firstname"
+                    value="<%= contacts.firstname %>" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastName" id="lastname" value="<%= contacts.lastname %>"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E Mail</label>
+                <input type="text" class="form-control" name="contactEmail" id="email" value="<%= contacts.email %>"
+                    required>
+            </div>
+            
+
+        </div>
+        
+    </form>
+    <% } else { %>
+    <p class="text-center">contact Submission Not Found! To update Contact click on Update Contact</p>
+    <% } %>
+</div>
+</div>
+</div><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<%- include ('./partials/footer.ejs') %>

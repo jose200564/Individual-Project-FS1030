@@ -1,0 +1,46 @@
+<%- include ('./partials/header.ejs') %>
+
+<div class="container" style="margin-top: 50px;">
+
+    <div class="card"> 
+        <div class="card-header" style="background-color:  rgb(222, 240, 241);">
+            <ul class="nav nav-pills w-100">
+                <li class="nav-pill active">
+                    <a class="nav-link"><h3>Edit Portfolio</h3></a>
+                </li>
+                <li class="nav-pill ml-auto">
+                    <a class="nav-link active" href="/addportfolio">Update Portfolio</a>
+                </li>
+            </ul>
+        </div>
+
+    <div class="card-body">
+        <% if (message) { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        
+        <% if (portfolios) { %>
+    <form class="add-portfolio-form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="caption">Title</label>
+                <input type="text" class="form-control" name="caption" id="caption" value="<%= portfolios.caption %>"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" id="description" value="<%= portfolios.description %>" required>
+            </div>
+
+        </div>
+        
+        
+    </form>
+    <% } else { %>
+    <p class="text-center">Portfolio Not Found! To update portfolio click Update Portfolio</p>
+    <% } %>
+</div>
+</div>
+</div><br><br><br><br><br><br><br><br><br><br>
+
+<%- include ('./partials/footer.ejs') %>
